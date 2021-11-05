@@ -1,0 +1,32 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<header th:insert="Blocks/header::header"></header>
+<head >
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+	body {
+		background:#808080;
+	}
+   </style>
+
+<body>
+<div class="container mt-5">
+    <form th:action="@{/SendOrder}" method="post">
+        <input type="text" name="name" placeholder="Введите Ф.И.О" class="form-control"><br>
+        <input type="text" name="andres" placeholder="Андрес" class="form-control"><br>
+        <input type="text" name="num" placeholder="Номер телефона" class="form-control"><br>
+        <input type="text" name="dat" placeholder="Дата и время записи" class="form-control"><br>
+        <textarea  name="full_text" placeholder="Дополнительная Информация" class="form-control"></textarea><br>
+        <button type="sumbit" class="btn btn-success">Подать заявку</button>
+    </form>
+
+</div>
+</div>
+
+</body>
+</html>

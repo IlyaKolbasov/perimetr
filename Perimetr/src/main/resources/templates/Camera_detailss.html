@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatalogItem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>*{
+    box-sizing: border-box;
+}
+
+body{
+
+    display: flex;
+    width: 100%;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+}
+
+#itemImg{
+    width: 50%;
+    text-align: center;
+    padding-top: 200px;
+}
+
+#itemImg img{
+    width: 350px;
+    transition: 1.5s;
+}
+
+#itemImg img:hover{
+    cursor: zoom-in;
+    transform: scale(1.1);
+}
+
+#itemInfo{
+    width: 50%;
+    padding-top: 100px;
+    padding-left: 10px;
+    padding-right: 80px;
+    padding-bottom: 50px;
+}
+
+#buyButton{
+    width: 110px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 0;
+    transition: 1s;
+}
+
+#buyButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#buyButton:active{
+    transform: scale(0.5);
+}
+
+#priceItemOld{
+    text-decoration: line-through;
+    color: gray;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+#priceItem{
+    font-size: 18px;
+}
+
+.bold{
+    font-weight: 600;
+}
+.back
+{position:fixed;
+height:30px;
+left:30px;
+}
+@media screen and (max-width: 750px){
+    body{
+        flex-direction: column;
+    }
+
+    #itemInfo, #itemImg{
+        width: 100%;
+    }
+
+    #itemInfo{
+        padding-left: 50px;
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    #itemImg{
+        padding-top: 50px;
+    }
+
+    #itemImg img{
+        width: 300px;
+    }
+
+}
+</style>
+</head>
+
+<body th:each="el:${post}">
+
+<button class="back"><a href="/Cameras">Вернуться к Камерам</a> </button>
+
+<div id="itemImg">
+    <img  th:src="${el.url}" alt="camera">
+</div>
+<div id="itemInfo" >
+    <h1 id="nameItem" th:text="${el.title}"></h1>
+    <p id="priceItem">151 р. <span id="priceItemOld">183 р.</span></p>
+    <button id="buyButton" class="bold">Приобрести</button>
+
+    <div id="moreInfo">
+        <p th:text="${el.full_text}"></p>
+    </div>
+</div>
+
+</body>
+</html>

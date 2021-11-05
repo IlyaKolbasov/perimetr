@@ -1,0 +1,37 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+	body {
+		background:#808080;
+	}
+   </style>
+<body>
+<header th:insert="Blocks/header::header"></header>
+<div class="container mt-5">
+    <h1 align="center">Запросы на доступ</h1>
+    <div th:each="el:${orders}" class="alert alert-info mt-2">
+        <h3 th:text="${el.name}"/>
+        <p th:text="${el.andres}"/>
+
+        <a th:href="'/Order/'+${el.id}" class="btn btn-warning"> Детальнее</a><br><br>
+
+        <form th:action="'/Order/'+${el.id}+'/remove'"method="post">
+            <button class="btn btn-warning" type="sumbit"> Удалить</button>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+</body>
+</html>
+
+

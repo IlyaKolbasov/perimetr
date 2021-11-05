@@ -1,0 +1,32 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<header th:insert="Blocks/header::header"></header>
+<head >
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+	body {
+		background:#808080;
+	}
+   </style>
+
+<body>
+<div class="container mt-5">
+<form th:action="@{/AddPost}" method="post">
+    <input type="text" name="title" placeholder="Введите название камеры" class="form-control"><br>
+    <input type="text" name="anons" placeholder="Введите анонс статьи" class="form-control"><br>
+    <input type="text" name="url" placeholder="Введите url фото" class="form-control"><br>
+    <textarea  name="full_text" placeholder="Полная характеристика" class="form-control"></textarea><br>
+    <input type="number" name="price" placeholder="Введите Цену" class="form-control"><br>
+    <button type="sumbit" class="btn btn-success">Добавить статью</button>
+</form>
+
+    </div>
+</div>
+
+</body>
+</html>

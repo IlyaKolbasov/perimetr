@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+
+<head >
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<header >
+    <div align="center ">
+
+        <div style="margin:30px">
+            <a class="p-2 text-white" href="/">ВИДЕОПЕРИМЕТР</a>
+        </div>
+    </div>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+
+    <nav align="center">
+
+        <a class="p-2 text-white" href="/Cameras">КАМЕРЫ</a>
+
+        <a class="p-2 text-white" href="/SendOrder">ЗАПРОС ЗАПИСЕЙ</a>
+        <a class="p-2 text-white" href="/Cart">КОРЗИНА</a>
+
+        <div sec:authorize= "hasAuthority ('Admin')">
+        <a class="p-2 text-white"   href="/AddPost">Добавить товар</a>
+        <a class="p-2 text-white" href="/Order">Запросы на доступ</a>
+        </div>
+
+    </nav>
+
+</header>
+
+<style>
+	body {
+		background: url(https://1.downloader.disk.yandex.ru/preview/2a2d7aa9d73be6c0b7847e168e92354715dc382d2cb96426e8ae6af3b6bb16d5/inf/nidcZDgFVpAEfgsuCyGNAucvZEw-DX-_miRKD_mcolSdrsgl1_BXMsKYVuRbrSO-J1rcjqTUi3L4n0n0NG3GbA%3D%3D?uid=643950779&filename=camera.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=643950779&tknv=v2&size=1903x937);
+
+	}
+
+   </style>
+
+<body>
+
+
+
+
+
+</body>
+</html>

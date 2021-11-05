@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<div th:grahment="header">
+<head >
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+    </style>
+</head>
+
+<header >
+    <div align="center">
+
+        <div style="margin:30px">
+            <a class="p-2 text-white" href="/">ВИДЕОПЕРИМЕТР</a>
+        </div>
+    </div>
+
+    <nav align="center">
+
+        <a class="p-2 text-white" href="/Cameras">КАМЕРЫ</a>
+        <a class="p-2 text-white" href="/SendOrder">ЗАПРОС ЗАПИСЕЙ</a>
+        <a class="p-2 text-white" href="/Cart">КОРЗИНА</a>
+        <div sec:authorize="hasAuthority('Admin')">
+        <a class="p-2 text-white" href="/AddPost">Добавить товар</a>
+        <a class="p-2 text-white" href="/Order">Запросы на доступ</a>
+        </div>
+
+    </nav>
+
+</header>
+
+</div>

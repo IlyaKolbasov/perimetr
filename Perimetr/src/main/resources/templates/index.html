@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>CameKol</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Oswald:wght@300&display=swap" rel="stylesheet">
+<style>
+*{
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+
+body{
+    /*width: 100vw;*/
+    height: 170vh;
+    margin: 0;
+}
+
+#main{
+    height: 50%;
+    background-image: url("https://2.downloader.disk.yandex.ru/preview/7fb59c71fa8869c2b5613e4a72bdfabbd3bd39f75151e3e5744d2a7f30fc9b89/inf/T01SpyxtRcArb5yoWn9RiJjnCxlhg1b3dfSDTbYawn-ZbPInrfEhN783OuQc1W4W6V0qdt5lAr-1bqAR63o6eA%3D%3D?uid=643950779&filename=bg2.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=643950779&tknv=v2&size=1898x902");
+    background-size: cover;
+    background-repeat: no-repeat;
+    clear: both;
+}
+
+header{
+    /*position: fixed;*/
+    /*width: 100%;*/
+    height: 25%;
+    clear: both;
+    /*background-color: gray;*/
+}
+
+ul{
+    width: 100%;
+    margin: 0%;
+    /*margin-left: 10%;*/
+    /*margin-right: 5%;*/
+    padding: 0;
+    color: whitesmoke;
+    font-family: Futura, sans-serif;
+    text-transform: uppercase;
+    /*font-weight: bold;*/
+    clear: both;
+    position: relative;
+    top: 40%;
+}
+
+li{
+    display: inline;
+<!--    margin-right: 4%;-->
+<!--    margin-left: 7%;-->
+<!--    /*margin-left: 7%;*/-->
+<!--    /*margin-right: 5%;*/-->
+<!--    font-size: 1.3vw;-->
+font-size: 15px;
+}
+
+#navFooter li{
+    /*margin-right: 18.3%;*/
+    margin-right: 17.8vw;
+    margin-left: 0%;
+    font-size: 1vw;
+    text-transform: none;
+}
+
+nav{
+    position: relative;
+    height: 50%;
+    clear: both;
+    /*background-color: blanchedalmond;*/
+    position: relative;
+    /*top: 0%;*/
+    /*clear: both;*/
+}
+
+nav ul{
+display: flex;
+    flex-direction: row;
+    justify-content: space-around
+    }
+
+#pay, #signIn{
+    position: absolute;
+    background-color: gray;
+    height: 30px;
+    width: 30px;
+    bottom: 0;
+    border-radius: 7px;
+}
+
+#pay:hover{
+    background-color: white;
+}
+
+#signIn:hover{
+    background-color: white;
+}
+
+#pay{
+    right: 20px;
+}
+
+#signIn{
+    right: 60px;
+}
+
+#navFooter {
+    height: 20%;
+}
+
+#bottomLeft{
+    position: relative;
+    height: 80%;
+    width: 30%;
+    /*background-color: deeppink;*/
+    float: left;
+}
+
+#bottomRight{
+    height: 80%;
+    width: 70%;
+    /*background-color: fuchsia;*/
+    float: right;
+}
+
+#words{
+    position: relative;
+    height: 9%;
+    background-color: white;
+    clear: both;
+}
+
+#slogan{
+    position: absolute;
+    /*top: 40%;*/
+    /*left: 38%;*/
+    margin: 5vh 35vw;
+    font-size: 2vw;
+    font-family: 'Dela Gothic One', cursive;
+    font-family: 'Oswald', sans-serif;
+}
+
+footer{
+    padding: 2%;
+    height: 41%;
+    background-color: black;
+    clear: both;
+}
+
+a{
+    text-decoration: none;
+}
+
+.default-header-menu-item{
+    position: relative;
+    /*padding-bottom: 1px;*/
+}
+
+a:visited{
+    color: inherit;
+}
+
+/*a:focus,*/
+/*a:hover {*/
+/*    color: inherit;*/
+/*}*/
+
+/*a::after {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    width: 0;*/
+/*    height: 1px;*/
+/*    background-color: whitesmoke;*/
+/*    transition: width 500ms;*/
+/*}*/
+
+/*a:hover::after {*/
+/*    width: 100%;*/
+/*}*/
+
+.default-header-menu-item:not(:hover):after {
+    -webkit-transform: scalex(0);
+    transform: scalex(0);
+}
+
+.default-header-menu-item:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: -3px;
+    background: #fff;
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s,-webkit-transform .5s;
+}
+
+#logo{
+    height: 50%;
+    clear: both;
+    /*background-color: cornflowerblue;*/
+    font-size: 7vh;
+    font-family: Futura, sans-serif;
+    font-weight: bold;
+    /*position: relative;*/
+    /*top: 0%;*/
+}
+
+#kolDiv{
+    width: 45%;
+    height: 100%;
+    float: left;
+    border-bottom: 3px solid white;
+}
+
+#camDiv{
+    width: 54%;
+    height: 100%;
+    float: right;
+    border-bottom: 3px solid white;
+}
+
+#kol{
+    float: right;
+    margin: 1vh 0 0 0;
+    padding-top: 7px;
+    /*color: black;*/
+    /*background-color: white;*/
+    /*mix-blend-mode: multiply;*/
+    background-color: white;
+    color: black;
+    mix-blend-mode: screen;
+    border-top: 3px solid;
+}
+
+#cam{
+    float: left;
+    margin: 1vh 0 0 0;
+    padding-top: 7px;
+    color: white;
+    border-top: 3px solid white;
+    /*background-color: black;*/
+}
+
+#instIcon{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 65%;
+    left: 0;
+    /*background-color: blanchedalmond;*/
+}
+
+#vkIcon{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 65%;
+    left: 12%;
+    background-color: gray;
+    border-radius: 7px;
+}
+
+#logoFooter{
+    position: absolute;
+    top: 80%;
+    left: 0;
+    height: 27px;
+    width: 105px;
+    /*background-color: blanchedalmond;*/
+}
+
+#name{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*background-color: blanchedalmond;*/
+    color: white;
+    font-size: 25px;
+    font-family: Century;
+
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="main">
+
+<header>
+    <a href="/"><div id="logo">
+        <div id="kolDiv">
+            <div id="kol">
+                VIDEO.
+            </div>
+        </div>
+        <div id="camDiv">
+            <div id="cam">
+                PERIMETER
+            </div>
+        </div>
+    </div>
+    </a>
+
+   <nav id="navHeader">
+        <ul>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/Cameras">КАМЕРЫ</a></li>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/SendOrder">ЗАПРОС ЗАПИСЕЙ</a></li>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/Cart">КОРЗИНА</a></li>
+            <a sec:authorize="hasAuthority('Admin')">
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/AddPost">Добавить товар</a></li>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/Order">Запросы на доступ</a></li>
+            </a>
+
+
+                <a  href="/login"><img src="https://cdn4.iconfinder.com/data/icons/superuser-web-kit/512/674023-signin_login_enter_entry_sign_log_in-512.png" style="width:35px;"></a>
+
+
+            <a sec:authorize="isAuthenticated()">
+            <div>
+                <form th:action="@{/logout}" method="post">
+                   <input  type="submit" value="Sign Out"/>
+                </form>
+            </div>
+            </a>
+        </ul>
+    </nav>
+
+</header>
+
+</div>
+
+<div id="words">
+    <div id="slogan">
+        МЫ ЗА ВАШУ БЕЗОПАСНОСТЬ
+    </div>
+</div>
+
+<footer>
+    <nav id="navFooter">
+        <ul>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/Cameras">КАМЕРЫ</a></li>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/SendOrder">ЗАПРОС ЗАПИСЕЙ</a></li>
+            <li class="default-header-menu-item"><a class="p-2 text-white" href="/Cart">КОРЗИНА</a></li>
+            <a sec:authorize="hasAuthority('Admin')">
+                <li class="default-header-menu-item"><a class="p-2 text-white" href="/AddPost">Добавить товар</a></li>
+                <li class="default-header-menu-item"><a class="p-2 text-white" href="/Order">Запросы на доступ</a></li>
+            </a>
+        </ul>
+    </nav>
+    <div id="bottomLeft">
+
+        <div id="name">
+            © 2021, VideoPerimeter.com
+        </div>
+    </div>
+
+</footer>
+</body>
+</html>
