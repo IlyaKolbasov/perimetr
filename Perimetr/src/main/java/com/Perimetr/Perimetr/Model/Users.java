@@ -4,13 +4,17 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class User {
+@Table(name="users", schema="public")
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
+    @Column(name="username")
     private String username;
+    @Column(name="password")
     private String password;
-
+    @Column(name="active")
     private boolean active;
 
     public boolean isActive() {
@@ -40,8 +44,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User() {
-
+    public Users() {
     }
 
     public Long getId() {
@@ -67,7 +70,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
 
 }

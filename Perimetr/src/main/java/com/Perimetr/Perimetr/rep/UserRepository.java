@@ -1,8 +1,10 @@
 package com.Perimetr.Perimetr.rep;
 
+import com.Perimetr.Perimetr.Model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.Perimetr.Perimetr.Model.User;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+@Repository
+public interface UserRepository extends JpaRepository<Users, Long> {
+    Users findByUsername(String username);
 }

@@ -1,7 +1,7 @@
 package com.Perimetr.Perimetr.Controllers;
 
 import com.Perimetr.Perimetr.Model.Role;
-import com.Perimetr.Perimetr.Model.User;
+import com.Perimetr.Perimetr.Model.Users;
 import com.Perimetr.Perimetr.rep.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,18 +23,18 @@ public class RegistrationController {
 
 
     @PostMapping("/Registration")
-    public String addUser(User user, Map<String, Object> model)
+    public String addUser(Users users, Map<String, Object> model)
     {
-       User userFromDb =  userRepository.findByUsername(user.getUsername());
-       if(userFromDb!=null)
+       Users usersFromDb =  userRepository.findByUsername(users.getUsername());
+       if(usersFromDb !=null)
        {
            model.put("message","User exists");
            return "Registration";
        }
-       user.setActive(true);
-       user.setRoles(Collections.singleton(Role.User));
+       users.setActive(true);
+       users.setRoles(Collections.singleton(Role.User));
 
-        userRepository.save(user);
+        userRepository.save(users);
         return"redirect:/login";
     }
 }
